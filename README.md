@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 Pooja Kumari - Portfolio
 
-## Getting Started
+A modern, responsive portfolio website showcasing my projects, skills, and achievements as a Computer Science Engineering student and blockchain enthusiast.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff69b4?style=flat-square)
 
+## 🌟 Features
+
+- **Modern UI/UX** - Sleek design with neon accents and glassmorphism effects
+- **Responsive Design** - Optimized for all devices (mobile, tablet, desktop)
+- **Smooth Animations** - Powered by Framer Motion for fluid transitions
+- **Dark Theme** - Eye-friendly dark mode with neon highlights
+- **Interactive Components** - Animated grids, cursor glow, and hover effects
+- **Downloadable Resume** - Direct PDF download functionality
+- **Contact Form** - Get in touch section with social links
+- **GitHub Integration** - Showcasing open-source contributions
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15 (React 19)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4 with custom design system
+- **Animations:** Framer Motion
+- **Icons & Assets:** Next.js Image optimization
+- **Deployment:** Ready for Vercel/Netlify
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 20.x or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Pooja11kumari/Portfolio.git
+cd Portfolio
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+portfolio/
+├── public/
+│   ├── profile.jpg      # Profile image
+│   └── resume.pdf       # Downloadable resume
+├── src/
+│   ├── app/
+│   │   ├── globals.css  # Global styles
+│   │   ├── layout.tsx   # Root layout
+│   │   └── page.tsx     # Main page
+│   └── components/
+│       ├── Hero.tsx          # Hero section
+│       ├── About.tsx         # About section
+│       ├── Skills.tsx        # Skills showcase
+│       ├── Projects.tsx      # Project portfolio
+│       ├── Experience.tsx    # Work experience
+│       ├── Achievements.tsx  # Awards & achievements
+│       ├── GitHub.tsx        # GitHub stats
+│       ├── Contact.tsx       # Contact form
+│       └── ...              # Other components
+└── package.json
+```
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+To customize the portfolio for your own use:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Update personal info** in `src/components/Hero.tsx`
+2. **Add your profile picture** as `public/profile.jpg`
+3. **Add your resume** as `public/resume.pdf`
+4. **Update projects** in `src/components/Projects.tsx`
+5. **Update skills** in `src/components/Skills.tsx`
+6. **Update social links** in `src/components/Contact.tsx` and `src/components/Footer.tsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📧 Contact
 
-## Deploy on Vercel
+- **Email:** [poojanshu113@gmail.com](mailto:poojanshu113@gmail.com)
+- **GitHub:** [github.com/Pooja11kumari](https://github.com/Pooja11kumari)
+- **LinkedIn:** [linkedin.com/in/poojakumari](https://linkedin.com/in/poojakumari)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Animated with [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+⭐ **If you like this portfolio, please give it a star!**
+
