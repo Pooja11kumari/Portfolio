@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #0b0b0f;
+  --color-foreground: #e4e4e7;
+  --color-neon-blue: #00d4ff;
+  --color-neon-violet: #a855f7;
+  --color-neon-pink: #ec4899;
+  --color-card-bg: rgba(255, 255, 255, 0.03);
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-card-hover: rgba(255, 255, 255, 0.06);
+  --color-muted: #71717a;
+  --color-surface: #141419;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-grid-scroll: grid-scroll 20s linear infinite;
+  --animate-typing: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes grid-scroll {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--color-neon-blue); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+:root {
+  --sidebar-bg: rgba(20, 20, 25, 0.75);
+  --mobile-nav-bg: rgba(20, 20, 25, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover-bg: rgba(255, 255, 255, 0.06);
+  --glass-hover-border: rgba(0, 212, 255, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --bg-raw: #0b0b0f;
+  --grid-line: rgba(255, 255, 255, 0.03);
+}
+
+html.light {
+  --color-background: #f5f5f7;
+  --color-foreground: #1a1a2e;
+  --color-muted: #64748b;
+  --color-surface: #ffffff;
+  --color-card-bg: rgba(255, 255, 255, 0.6);
+  --color-card-border: rgba(0, 0, 0, 0.08);
+  --color-card-hover: rgba(255, 255, 255, 0.8);
+  --sidebar-bg: rgba(255, 255, 255, 0.8);
+  --mobile-nav-bg: rgba(255, 255, 255, 0.92);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-hover-bg: rgba(255, 255, 255, 0.85);
+  --glass-hover-border: rgba(0, 212, 255, 0.4);
+  --input-bg: rgba(0, 0, 0, 0.04);
+  --bg-raw: #f5f5f7;
+  --grid-line: rgba(0, 0, 0, 0.04);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a transparent;
+}
+
+html.light * {
+  scrollbar-color: #d4d4d8 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+html.light *::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #fff;
+}
+
+html.light ::selection {
+  background: rgba(0, 212, 255, 0.25);
+  color: #000;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light .glass {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.glass-hover:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+html.light .glass-hover:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08), 0 0 20px rgba(0, 212, 255, 0.08);
+}
+
+.neon-text {
+  background: linear-gradient(135deg, #00d4ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--bg-raw), var(--bg-raw)),
+    linear-gradient(135deg, #00d4ff, #a855f7);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.glow-blue {
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3), 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.profile-glow {
+  background: linear-gradient(135deg, #00d4ff, #a855f7, #00d4ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.glow-violet {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.1);
+}
+
+.animated-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-scroll 20s linear infinite;
+}
+
+html.light .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+html.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+html.light .border-neon-blue\/20 {
+  border-color: rgba(0, 180, 220, 0.25);
+}
+
+html.light .border-neon-violet\/20 {
+  border-color: rgba(140, 70, 210, 0.25);
+}
+
+html.light .text-neon-blue\/80 {
+  color: rgba(0, 170, 210, 0.9);
+}
+
+html.light .text-neon-violet\/80 {
+  color: rgba(140, 70, 210, 0.9);
+}
+
+html.light .bg-neon-blue\/10 {
+  background-color: rgba(0, 212, 255, 0.12);
+}
+
+html.light .bg-neon-violet\/10 {
+  background-color: rgba(168, 85, 247, 0.12);
 }
